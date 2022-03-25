@@ -35,6 +35,12 @@ class ViewController: UIViewController {
         lightNode.position = SCNVector3Make(0, 0, 300)
         scene?.rootNode.addChildNode(lightNode)
         
+        //添加灯光效果 ambient：均匀的散射在物体上
+        let lightNode1 = SCNNode.init()
+        lightNode1.light = SCNLight()
+        lightNode1.light?.type = SCNLight.LightType.ambient
+        scene?.rootNode.addChildNode(lightNode1)
+        
         scnView = SCNView.init(frame: CGRect(x: 0, y: 0, width: kswidth, height: 500))
         scnView.allowsCameraControl = true
         scnView.showsStatistics = true
